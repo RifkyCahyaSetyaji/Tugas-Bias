@@ -2,20 +2,17 @@
 if($_POST) {
 
     include '../config/database.php';
-    include '../object/anggota.php';
+    include '../object/kategori.php';
 
     $database = new Database();
     $db = $database->getConnection();
 
-    $anggota = new Anggota($db);
+    $kategori = new Kategori($db);
 
-    $anggota->NIK = $_POST['nik'];
-    $anggota->NamaLengkap = $_POST['namalengkap'];
-    $anggota->Alamat = $_POST['alamat'];
-    $anggota->NoTelp = $_POST['notelp'];
-    $anggota->ID = $_POST['id'];
+    $kategori->NamaKategori = $_POST['namakategori'];
+    $kategori->ID = $_POST['id'];
 
-    $anggota->update();
+    $kategori->update();
 }
-header("Location: http://localhost/perpus_app/anggota/index.php");
+header("Location: http://localhost/perpus_app/kategori/index.php");
 ?>
